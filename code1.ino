@@ -1,4 +1,3 @@
-//YWROBOT
 
 //Compatible with the Arduino IDE 1.0
 
@@ -9,20 +8,13 @@
 #include <LiquidCrystal_I2C.h>
 
 
-
 LiquidCrystal_I2C lcd(0x3F,16,2);  // set the LCD address to 0x27 for a 16 chars and 2 line display
-
-
-
-
 
 // this constant won't change:
 
 const int  Up_buttonPin   = 2;    // the pin that the pushbutton is attached to
 
 const int  Down_buttonPin = 3;
-
-
 
 // Variables will change:
 
@@ -32,15 +24,11 @@ int up_buttonState = 0;         // current state of the up button
 
 int up_lastButtonState = 0;     // previous state of the up button
 
-
-
 int down_buttonState = 0;         // current state of the up button
 
 int down_lastButtonState = 0;     // previous state of the up button
 
 bool bPress = false;
-
-
 
 void setup()
 
@@ -52,11 +40,9 @@ void setup()
 
   pinMode( Down_buttonPin , INPUT_PULLUP);
 
- 
 
   lcd.init();                      // initialize the lcd
 
- 
 
   // Print a message to the LCD.
 
@@ -70,13 +56,7 @@ void setup()
 
   lcd.print(buttonPushCounter);
 
- 
-
 }
-
-
-
-
 
 void loop()
 
@@ -85,8 +65,6 @@ void loop()
    checkUp();
 
    checkDown();
-
-
 
    if( bPress){
 
@@ -102,19 +80,13 @@ void loop()
 
    }
 
- 
-
 }
-
-
 
 void checkUp()
 
 {
 
   up_buttonState = digitalRead(Up_buttonPin);
-
-
 
   // compare the buttonState to its previous state
 
@@ -162,8 +134,6 @@ void checkDown()
 
   down_buttonState = digitalRead(Down_buttonPin);
 
-
-
   // compare the buttonState to its previous state
 
   if (down_buttonState != down_lastButtonState) {
@@ -177,8 +147,6 @@ void checkDown()
       // if the current state is HIGH then the button went from off to on:
 
       buttonPushCounter--;
-
-     
 
       Serial.println("on");
 
